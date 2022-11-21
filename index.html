@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Font awesome -->
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+      data-auto-replace-svg="nest"
+    ></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Todo List</title>
+  </head>
+  <body class="">
+    <!-- heading -->
+    <h1 class="display-3 text-center">Todo List</h1>
+    <!-- main container -->
+    <div class="container p-3 bg-light shadow">
+      <!-- input box -->
+      <div class="addnew row p-3">
+        <div class="input-group col ps-0">
+          <span class="input-group-text rounded-start" id="basic-addon1"
+            ><i class="fa fa-calendar-day" aria-hidden="true"></i
+          ></span>
+          <input
+            type="text"
+            class="form-control"
+            name="todo"
+            id="add-task-input"
+            aria-describedby="helpId"
+            placeholder="Add new task..."
+            oninput="handleChange()"
+          />
+        </div>
+        <input
+          name="add"
+          id="add-task-button"
+          class="col-auto btn btn-primary"
+          type="button"
+          value="Add"
+          disabled
+          onclick="createTask(this.previousElementSibling.querySelector('input').value)"
+        />
+      </div>
+      <!-- filter -->
+      <div class="filter d-flex justify-content-end mb-3">
+        <label for="filter" class="me-2">Filter</label>
+        <select class="rounded me-3" name="filter" id="filter">
+          <option selected>All</option>
+          <option>Completed</option>
+          <option>Due</option>
+        </select>
+        <button
+          class="badge bg-primary mb-0 px-1 desc"
+          onclick="toggleOrder(this)"
+        >
+          <i class="fa fa-sort-amount-down-alt" aria-hidden="true"></i>
+        </button>
+        <button
+          class="badge bg-primary mb-0 px-1 asc d-none"
+          onclick="toggleOrder(this)"
+        >
+          <i class="fa fa-sort-amount-down" aria-hidden="true"></i>
+        </button>
+      </div>
+      <!-- todo list box -->
+      <div class="list"></div>
+    </div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+    <script src="db.js"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+body{
+  background: rgb(33, 191, 253);
+}
+
+span{
+  cursor: default;
+}
+
+.list{
+  width: 100%;
+}
+.list div{
+  color:black;
+  transition: all ease-in-out 200ms;
+}
+.list div:hover{
+  color: rgb(28, 141, 235);
+}
+.list div:hover .edit{
+  display: block !important;
+}
+.list div i{
+  cursor: pointer;
+}
+
+.task{
+  background-color: rgb(0,0,0,0);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.task:hover{
+  background-color: rgb(28, 141, 235,0.1);
+}
